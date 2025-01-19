@@ -1,0 +1,46 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Testing
+coverage
+.nyc_output
+
+# Production
+build
+dist
+out
+
+# Environment files
+.env*
+!.env.example
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDEs and editors
+.idea
+.vscode
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Docker
+.docker
+docker-volumes
+
+# Model files
+/claude-3.5-sonnet/models/*
+!/claude-3.5-sonnet/models/.gitkeep
+
+# Cache
+.cache
+.next
+.nuxt
+.temp

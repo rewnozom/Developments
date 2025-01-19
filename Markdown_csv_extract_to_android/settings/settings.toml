@@ -1,0 +1,24 @@
+[paths]
+base_dir = ""
+output_dir = ""
+
+[files]
+ignored_extensions = [ ".exe", ".dll",]
+ignored_files = []
+
+[directories]
+ignored_directories = []
+
+[file_specific]
+use_file_specific = false
+specific_files = []
+
+[output]
+markdown_file_prefix = "Full_Project"
+csv_file_prefix = "Detailed_Project"
+
+[metrics]
+size_unit = "KB"
+
+[presets]
+preset-1 = []

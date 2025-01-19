@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Theme Colors */
+  --bg-primary: rgba(43, 41, 41, 0.85);
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #262626;
+  
+  --text-primary: rgb(209, 204, 204);
+  --text-secondary: #d4d4d4;
+  --text-tertiary: #a3a3a3;
+  
+  --accent-primary: #fb923c;
+  --accent-secondary: #f97316;
+  --accent-tertiary: #ea580c;
+  
+  --border-color: rgba(82, 82, 82, 0.3);
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --glass-bg: rgba(26, 26, 26, 0.9);
+  
+  /* Animation Durations */
+  --transition-fast: 150ms;
+  --transition-normal: 200ms;
+  --transition-slow: 300ms;
+}
+
+/* Base Styles */
+body {
+  @apply antialiased;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(82, 82, 82, 0.5);
+}
+
+/* Glass Effect Classes */
+.glass {
+  @apply backdrop-blur-md;
+  background-color: var(--glass-bg);
+}
+
+.glass-light {
+  @apply backdrop-blur-sm;
+  background-color: rgba(26, 26, 26, 0.7);
+}
+
+/* Animation Classes */
+.animate-in {
+  animation: fadeIn var(--transition-normal) ease-out;
+}
+
+.animate-out {
+  animation: fadeOut var(--transition-normal) ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+/* Loading Indicator */
+.loading-dots::after {
+  content: '';
+  animation: dots 1.5s steps(5, end) infinite;
+}
+
+@keyframes dots {
+  0%, 20% { content: '.'; }
+  40% { content: '..'; }
+  60% { content: '...'; }
+  80%, 100% { content: ''; }
+}
+
+/* Markdown Styles */
+.prose {
+  @apply max-w-none;
+  color: var(--text-primary);
+}
+
+.prose pre {
+  @apply bg-[#1a1a1a] rounded-lg p-4 my-4;
+}
+
+.prose code {
+  @apply bg-[rgba(82,82,82,0.3)] px-1.5 py-0.5 rounded text-[0.9em];
+}
+
+.prose a {
+  @apply text-[#fb923c] hover:text-[#f97316] transition-colors;
+}
+
+/* Component Base Styles */
+@layer components {
+  .btn {
+    @apply rounded-lg px-4 py-2 font-medium transition-colors duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-[#fb923c] text-white hover:bg-[#f97316];
+  }
+
+  .btn-secondary {
+    @apply bg-[rgba(82,82,82,0.3)] text-[#e5e5e5] hover:bg-[rgba(82,82,82,0.5)];
+  }
+
+  .input {
+    @apply rounded-lg border border-[rgba(82,82,82,0.3)] bg-[#1a1a1a] 
+      px-3 py-2 text-[#e5e5e5] placeholder:text-[#a3a3a3]
+      focus:border-[#fb923c] focus:outline-none;
+  }
+
+  .card {
+    @apply rounded-lg border border-[rgba(82,82,82,0.3)] bg-[#262626] p-4 shadow-lg;
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "config": {
+    "system": {
+      "debug_mode": false,
+      "environment": "development",
+      "max_retries": 3,
+      "timeout": 30,
+      "cache_enabled": true,
+      "cache_size": 1000,
+      "base_url": "http://localhost:8000",
+      "version": "1.a.6",
+      "model_name": "lm-studio-local",
+      "model_settings": {
+        "claude-3-haiku": {
+          "model_name": "claude-3-haiku-20240307",
+          "max_tokens": 100000,
+          "temperature": 0.7,
+          "top_p": 0.9
+        },
+        "claude-3-sonnet": {
+          "model_name": "claude-3-sonnet-20240229",
+          "max_tokens": 100000,
+          "temperature": 0.7,
+          "top_p": 0.9
+        },
+        "claude-3-opus": {
+          "model_name": "claude-3-opus-20240229",
+          "max_tokens": 100000,
+          "temperature": 0.7,
+          "top_p": 0.9
+        },
+        "gpt-4": {
+          "model_name": "gpt-4",
+          "max_tokens": 100000,
+          "temperature": 0.7,
+          "top_p": 0.9
+        },
+        "gpt-3.5-turbo": {
+          "model_name": "gpt-3.5-turbo",
+          "max_tokens": 100000,
+          "temperature": 0.7,
+          "top_p": 0.9
+        },
+        "lm-studio-local": {
+          "model_name": "model-identifier",
+          "max_tokens": 100000,
+          "temperature": 0.7,
+          "top_p": 0.9,
+          "api_base": "http://localhost:1234/v1"
+        }
+      }
+    },
+    "security": {
+      "enable_safety_filters": true,
+      "content_filtering": true,
+      "max_tokens": 100000,
+      "rate_limit": 60,
+      "api_key_required": false,
+      "allowed_origins": [
+        "http://localhost:3000",
+        "http://localhost:8000"
+      ],
+      "ssl_verify": true,
+      "max_request_size": 10485760
+    },
+    "logging": {
+      "level": "INFO",
+      "file_path": "logs\\claude.log",
+      "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+      "rotate_logs": true,
+      "max_size": 10485760,
+      "backup_count": 5,
+      "console_output": true
+    },
+    "resources": {
+      "storage_path": "storage",
+      "temp_path": "temp",
+      "max_file_size": 10485760,
+      "allowed_extensions": [
+        ".txt",
+        ".md",
+        ".rst",
+        ".py",
+        ".js",
+        ".java",
+        ".cpp",
+        ".h",
+        ".json",
+        ".yaml",
+        ".yml",
+        ".csv",
+        ".svg"
+      ],
+      "cleanup_interval": 3600,
+      "max_storage_size": 1073741824
+    }
+  },
+  "metrics": {
+    "total_conversations": 1,
+    "active_conversations": 0,
+    "system_uptime": 2419.926552,
+    "memory_usage": {
+      "rss": 26.52734375,
+      "vms": 87.8046875,
+      "percent": 0.08151356611794275
+    }
+  },
+  "conversation_ids": [
+    "37ba7805-7700-4fce-803b-2d88fde42ed0"
+  ]
+}

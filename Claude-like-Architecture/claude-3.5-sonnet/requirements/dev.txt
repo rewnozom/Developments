@@ -1,0 +1,9 @@
+# Development dependencies
+autopep8==2.3.1
+myst-parser>=0.18.0
+pre-commit>=2.20.0
+sphinx>=4.5.0
+sphinx-rtd-theme>=1.0.0
+
+# Include base dependencies
+-r base.txt

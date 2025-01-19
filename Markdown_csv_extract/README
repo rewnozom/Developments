@@ -1,0 +1,127 @@
+# Code Extractor and Documentation Tool
+
+A desktop application for extracting and documenting code from projects, with support for both forward and reverse extraction in multiple formats.
+
+## Features
+
+- **Project Documentation**: Extract code and create comprehensive documentation in both Markdown and CSV/Excel formats
+- **Dark Mode**: Modern dark-themed GUI
+- **Preset Management**: Save and manage multiple extraction configurations
+- **Two-Way Extraction**: Support for both extraction and reverse-extraction
+- **Quick Paste**: Fast extraction from pasted code snippets
+- **Progress Tracking**: Real-time progress bars and status updates
+- **File Filtering**: Configurable file and directory filtering
+
+---
+
+## Installation
+
+Install directly using pip:
+```bash
+pip install .
+```
+
+If the above fails, install from requirements:
+```bash
+pip install -r requirements.txt
+```
+
+Note: recomend Python 3.10.x - 3.11.x
+
+---
+
+## Usage
+
+### Starting the Application
+
+Run the main GUI application:
+```bash
+python gui.py
+```
+
+---
+
+### Workflow
+
+1. **Select Directory**: Click the directory input field to choose your project folder
+2. **Choose Extraction Type**:
+   - **Standard Extraction**: Creates Markdown/CSV documentation from your code
+   - **Quick Paste**: Extracts files directly from pasted code snippets
+   - **Reverse Extraction**: Recreates files from previously extracted documentation
+
+3. **Configure Settings**:
+   - Create presets for different file groups
+   - Set file-specific extraction rules
+   - Configure output formats and paths
+
+4. **Run Extraction**: Click "Run" to start the process
+
+### Extraction Modes
+
+#### Standard Extraction
+- **Markdown**: Creates detailed Markdown files with code blocks and file structure
+- **CSV/Excel**: Generates spreadsheets with metrics and code content
+
+#### Quick Paste
+1. Open the "Quick Paste" tab
+2. Paste your code snippets
+3. Click "Extract Files" or press Enter
+
+#### Reverse Extraction
+1. Select your previously generated Markdown or Excel file
+2. Choose an output directory
+3. Click "Reverse Extract" to recreate the original files
+
+## Configuration
+
+### Settings File (settings.toml)
+
+```toml
+[paths]
+base_dir = ""
+output_dir = ""
+select_markdown_reverse_file = ""
+select_markdown_output_reverse_dir = [ "",]
+path_style = "windows"  # or "unix"
+
+[files]
+ignored_extensions = [".exe", ".dll"]
+ignored_files = ["file_to_ignore.txt"]
+
+[directories]
+ignored_directories = ["dir_to_ignore"]
+
+[file_specific]
+use_file_specific = false
+specific_files = [""]
+
+[output]
+markdown_file_prefix = "Full_Project"
+csv_file_prefix = "Detailed_Project"
+
+[metrics]
+size_unit = "KB"
+
+[presets]
+preset-1 = [""]
+```
+
+## Features in Detail
+
+### Markdown Extraction
+- Creates formatted documentation with syntax highlighting
+- Includes file paths and file content
+- Generates table of contents
+- Creates companion file with line references
+
+### CSV/Excel Extraction
+- File metrics (size, lines, characters)
+- Code element counting (classes, functions, variables)
+- Full code content preservation
+- Automated column width adjustment
+
+### Reverse Extraction
+- Supports both Markdown and Excel sources
+- Preserves original file structure
+- Handles various path formats
+- Progress tracking with status updates
