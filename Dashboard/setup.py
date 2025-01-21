@@ -6,9 +6,9 @@ import subprocess
 from setuptools import setup, find_packages
 from setuptools.command.install import install
 
-# Read the README file for the long description
-with open("README.md", "r", encoding="utf-8") as fh:
-    long_description = fh.read()
+# Read README.md for the long description
+with open("README.md", encoding="utf-8") as f:
+    long_description = f.read()
 
 class CustomInstallCommand(install):
     def run(self):
@@ -31,21 +31,7 @@ class CustomInstallCommand(install):
 
             # Install dependencies in the virtual environment
             print("Installing dependencies in virtual environment...")
-            requirements = [
-                "pyaudio",
-                "PySide6",
-                "keyboard",
-                "faster-whisper",
-                "ctranslate2"
-            ]
-            
-            for req in requirements:
-                print(f"Installing {req}...")
-                try:
-                    subprocess.check_call([pip_executable, "install", req])
-                except subprocess.CalledProcessError as e:
-                    print(f"Warning: Failed to install {req}. Error: {e}")
-                    continue
+            subprocess.check_call([pip_executable, "install", "PySide6>=6.0.0"])
             
             # Print activation instructions
             if platform.system() == "Windows":
@@ -60,46 +46,29 @@ class CustomInstallCommand(install):
         install.run(self)
 
 setup(
-    name="fast_whisper_v2",
-    version="0.1.0",
+    name="search-dashboard",
+    version="1.0.0",
     author="Tobias R",
-    description="Fast Whisper-v2 is a simple and user-friendly application that uses Faster Whisper for fast and accurate transcription. It provides an easy way to handle audio transcription tasks.",
-    long_description=long_description,
-    long_description_content_type="text/markdown",
+    description="A customizable search dashboard with AI prompt management",
     packages=find_packages(),
-    include_package_data=True,
+    python_requires=">=3.10",
+    install_requires=[
+        "PySide6>=6.0.0",
+    ],
     classifiers=[
-        "Programming Language :: Python :: 3",
+        "Development Status :: 3 - Alpha",
+        "Intended Audience :: End Users/Desktop",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
     ],
-    python_requires=">=3.8",
-    install_requires=[
-        "pyaudio",
-        "PySide6",
-        "keyboard",
-        "faster-whisper",
-        "ctranslate2",
-    ],
-    entry_points={
-        "console_scripts": [
-            "fast-whisper=main:main",
-        ]
-    },
-    extras_require={
-        "dev": [
-            "pytest",
-            "flake8",
-        ]
-    },
-    package_data={
-        "": ["*.json", "*.md", "*.css"],
-    },
-    data_files=[
-        ("config", ["config.json"]),
-    ],
-    zip_safe=False,
     cmdclass={
         'install': CustomInstallCommand,
+    },
+    entry_points={
+        'console_scripts': [
+            'search-dashboard=Dashboard.main_dashboard:main',
+        ],
     }
 )

@@ -2826,7 +2826,7 @@ class QuickPasteFrame(QFrame):
 class App(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.settings_path = "./settings.toml"
+        self.settings_path = "./Markdown_csv_extract/settings.toml"
         self.settings_manager = SettingsManager(self.settings_path)
         
         # Configure main window

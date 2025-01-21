@@ -52,24 +52,24 @@ python main.py
 
 ### Markdown_csv_extract
 ```bash
-cd Workspace/Markdown_csv_extract
+cd Markdown_csv_extract
 python -m venv env
 source env/bin/activate  # Linux/Unix
 .\env\Scripts\Activate.ps1  # PowerShell
 .\env\Scripts\activate.bat  # CMD
 pip install -r requirements.txt
-python parser.py
+python _gui_.py
 ```
 
-### dynamic_main
+### Markdown_csv_extract_to_android
 ```bash
-cd Workspace/dynamic_main
+cd Markdown_csv_extract_to_android
 python -m venv env
 source env/bin/activate  # Linux/Unix
 .\env\Scripts\Activate.ps1  # PowerShell
 .\env\Scripts\activate.bat  # CMD
 pip install -r requirements.txt
-python app.py
+python __phone_extr_v_01_3.py
 ```
 
 ### Dashboard
