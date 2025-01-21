@@ -1,116 +1,101 @@
 # Developments
 
-### Workspace Project Management
-
-This workspace contains multiple independent projects, each with its own virtual environment (`env/`). This setup ensures that dependencies for each project remain isolated.
-
-
 ## Directory Structure
 ```
-Workspace/
+C:\Users\Tobia\Developments\
 │
-├── fast_whisper_v2/
-│   ├── env/
-│   ├── main.py
-│   └── requirements.txt
-│
-├── Markdown_csv_extract/
-│   ├── env/
-│   ├── parser.py
-│   └── requirements.txt
-│
-├── dynamic_main/
-│   ├── env/
-│   ├── app.py
-│   └── requirements.txt
-│
+
+├── auto_generate_ai_chat_v2_a_03/
+├── Auto_job_seaker/
+├── auto_requirements.txt
+├── Claude-like-Architecture/
 ├── Dashboard/
-│   ├── env/
-│   ├── server.py
-│   └── requirements.txt
-│
-└── Auto_job_seaker/
-    ├── env/
-    ├── scraper.py
-    └── requirements.txt
-└── # More coming soon (fixing the documentation on them and will update when they're ready)
+├── Development Tools/
+├── fast_whisper_v2/
+├── LoRA_data_prep_text_llm/
+├── Markdown_csv_extract/
+├── Markdown_csv_extract_to_android/
+└── tobias-raanaes_v10/
 ```
 
+## Project Setup and Installation
 
-## Project Setup and Execution (Copy-Paste Ready)
+### Python Projects Installation
+Run these commands in each Python project directory:
 
-### fast_whisper_v2
+#### auto_generate_ai_chat_v2_a_03
 ```bash
-cd Workspace/fast_whisper_v2
-python -m venv env
-source env/bin/activate  # Linux/Unix
-.\env\Scripts\Activate.ps1  # PowerShell
-.\env\Scripts\activate.bat  # CMD
-pip install -r requirements.txt
-python main.py
+cd auto_generate_ai_chat_v2_a_03
+python setup.py install
 ```
 
-### Markdown_csv_extract
+#### Auto_job_seaker
+```bash
+cd Auto_job_seaker
+python setup.py install
+```
+
+#### Claude-like-Architecture
+```bash
+cd Claude-like-Architecture
+# Install dependencies for all workspaces
+npm install
+cd claude-3.5-sonnet
+# Try to install package directly, if it fails, fall back to requirements.txt
+pip install . || pip install -r requirements.txt
+cd ..
+# Start both frontend and backend in development mode
+npm run dev
+
+# view backend health-check = http://localhost:8000/docs
+# view frontend = http://localhost:3000
+```
+
+#### Dashboard
+```bash
+cd Dashboard
+python setup.py install
+```
+
+#### Development Tools
+```bash
+cd "Development Tools"
+python setup.py install
+```
+
+#### LoRA_data_prep_text_llm
+```bash
+cd LoRA_data_prep_text_llm
+python setup.py install
+```
+
+#### Markdown_csv_extract
 ```bash
 cd Markdown_csv_extract
-python -m venv env
-source env/bin/activate  # Linux/Unix
-.\env\Scripts\Activate.ps1  # PowerShell
-.\env\Scripts\activate.bat  # CMD
-pip install -r requirements.txt
-python _gui_.py
+python setup.py install
 ```
 
-### Markdown_csv_extract_to_android
+#### Markdown_csv_extract_to_android
 ```bash
 cd Markdown_csv_extract_to_android
-python -m venv env
-source env/bin/activate  # Linux/Unix
-.\env\Scripts\Activate.ps1  # PowerShell
-.\env\Scripts\activate.bat  # CMD
-pip install -r requirements.txt
-python __phone_extr_v_01_3.py
+python setup.py install
 ```
 
-### Dashboard
+#### fast_whisper_v2
 ```bash
-cd Workspace/Dashboard
-python -m venv env
-source env/bin/activate  # Linux/Unix
-.\env\Scripts\Activate.ps1  # PowerShell
-.\env\Scripts\activate.bat  # CMD
-pip install -r requirements.txt
-python server.py
+cd fast_whisper_v2
+python setup.py install
 ```
 
-### Auto_job_seaker
+### Node.js Project Installation
+
+#### tobias-raanaes_v10
 ```bash
-cd Workspace/Auto_job_seaker
-python -m venv env
-source env/bin/activate  # Linux/Unix
-.\env\Scripts\Activate.ps1  # PowerShell
-.\env\Scripts\activate.bat  # CMD
-pip install -r requirements.txt
-python scraper.py
+cd tobias-raanaes_v10
+npm install
 ```
 
-## Notes for Shell-Specific Commands
-
-### PowerShell
-- Uses `&&` for command chaining
-- Execution policy might need to be set:
-  ```powershell
-  Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-  ```
-
-### CMD
-- Uses `&` for command chaining
-- No execution policy restrictions
-
-### Linux/Unix
-- Uses `&&` for command chaining
-- Make sure scripts are executable:
-  ```bash
-  chmod +x env/bin/activate
-  ```
-
+## Notes
+- Each project is independent with its own dependencies
+- Python projects use `setup.py install` for installation
+- The Node.js project (tobias-raanaes_v10) uses npm for dependency management
