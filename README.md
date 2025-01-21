@@ -2,9 +2,7 @@
 
 ## Directory Structure
 ```
-C:\Users\Tobia\Developments\
-│
-
+.\Developments\
 ├── auto_generate_ai_chat_v2_a_03/
 ├── Auto_job_seaker/
 ├── auto_requirements.txt
