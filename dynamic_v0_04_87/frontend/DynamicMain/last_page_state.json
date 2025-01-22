@@ -1,0 +1,17 @@
+{
+    "last_page": "1_chat",
+    "window_state": {
+        "size": {
+            "width": 800,
+            "height": 600
+        },
+        "position": {
+            "x": 100,
+            "y": 100
+        }
+    },
+    "ui_state": {
+        "theme": "dark",
+        "sidebar_expanded": true
+    }
+}
